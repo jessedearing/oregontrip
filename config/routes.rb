@@ -1,4 +1,6 @@
 Oregonocalypse::Application.routes.draw do
+  get "/" => "map#index"
+  get "/latitude/auth" => "latitude#auth"
   get "/latitude/callback" => "latitude#callback"
   # The priority is based upon order of creation:
   # first created -> highest priority.
