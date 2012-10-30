@@ -34,4 +34,8 @@ Oregonocalypse::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  if ENV['LOG_STDOUT']
+    config.logger = Logger.new(STDOUT)
+    STDOUT.sync = true
+  end
 end
