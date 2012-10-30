@@ -21,6 +21,11 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'faraday'
+gem 'faraday_middleware'
+gem 'google-api-client', :require => 'google/api_client'
+gem 'haml'
+gem 'rspec'
 
 group :development do
   gem 'foreman'
