@@ -6,6 +6,14 @@ class MapController < ApplicationController
 
     latitude.auth.access_token = Authorization.current.token
 
+    if Authorization.current.updated_at + 50.minutes <= Time.now
+      a = Authorization.current
+      latitude.auth.refresh_token = a.renew_token
+      at = latitude.auth.fetch_access_token!['access_token']
+      a.token = at
+      a.save!
+    end
+
     current_location = latitude.current_location
     @coords = current_location
     @geo_info = Geocoder.search("#{current_location.lat}, #{current_location.lon}").first
