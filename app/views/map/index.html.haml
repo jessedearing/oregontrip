@@ -1,0 +1,14 @@
+.translucent.top-right-corner.title-box
+
+.opaque.top-right-corner.title-text
+  %h1
+    Jesse and Katie's Oregon Trip 2012
+#map_canvas
+
+- content_for(:javascripts) do
+  :coffeescript
+    map = new Map(#{@coords.lat}, #{@coords.lon})
+    map.gaRenderMap("map_canvas")
+
+- content_for(:stylesheets) do
+  %link{href:'http://fonts.googleapis.com/css?family=Open+Sans:400,700', rel:'stylesheet', type:'text/css'}
