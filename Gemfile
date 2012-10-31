@@ -27,6 +27,11 @@ gem 'google-api-client', :require => 'google/api_client'
 gem 'haml'
 gem 'rspec'
 
+gem 'qu'
+
+gem 'coffee-filter'
+gem 'mobylette'
+
 group :development do
   gem 'foreman'
 end
