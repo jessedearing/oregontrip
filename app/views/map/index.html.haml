@@ -28,7 +28,8 @@
   :coffeescript
     document.map = new Map(#{@coords.lat}, #{@coords.lon})
     document.map.gaRenderMap("map_canvas")
-    setTimeout(document.map.update, 6000)
+    setTimeout(document.map.update, 60000)
+    setTimeout(window.location.reload, 300000)
 
 - content_for(:stylesheets) do
   %link{href:'http://fonts.googleapis.com/css?family=Open+Sans:400,700', rel:'stylesheet', type:'text/css'}

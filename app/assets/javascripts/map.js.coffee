@@ -6,7 +6,7 @@ class @Map
     new google.maps.LatLng(@lat, @lon)
   gaRenderMap: (mapdiv) ->
     mapOptions = {
-      zoom: 8
+      zoom: 9
       center: this.gaLatLon()
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
@@ -27,4 +27,4 @@ class @Map
       latlon = new google.maps.LatLng(data.lat, data.lon)
       document.map.marker.setPosition(latlon)
       document.map.map.panTo(latlon)
-      setTimeout(document.map.update, 60000)
+    setTimeout(document.map.update, 60000)
