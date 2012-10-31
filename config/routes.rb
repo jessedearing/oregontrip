@@ -1,4 +1,6 @@
 Oregonocalypse::Application.routes.draw do
+  resource :driver, :controller => "driver"
+
   get "/" => "map#index"
   get "/latitude/auth" => "latitude#auth"
   get "/latitude/callback" => "latitude#callback"

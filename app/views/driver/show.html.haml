@@ -1,0 +1,4 @@
+= form_for @driver, url: driver_path do |f|
+  = f.label "Driver"
+  = f.select "name", ["(not driving)", "Jesse", "Katie"]
+  = f.submit
