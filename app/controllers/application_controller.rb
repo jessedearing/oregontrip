@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   mobylette_config do |config|
     config[:skip_user_agents] = [:ipad]
     config[:fallback_chains] = {
-      iphone: [:iphone, :mobile, :html]
+      iphone: [:mobile, :html]
     }
   end
 
