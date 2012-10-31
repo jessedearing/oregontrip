@@ -25,30 +25,43 @@ html, body
   padding: 0 20px
   border: solid 2px #000
 
+.title-box.mobile
+  width: 100%
+
 .title-text
   width: 600px
   height: 80px
   z-index: 1000
   font-size: 16px
   line-height: 28px
-  display: block
+
+.title-text.mobile
+  font-size: 21px
+  width: 90%
   margin-left: auto
   margin-right: auto
 
 .bottom
   position: absolute
-  bottom: 2px
-  right: 0
+  bottom: -2px
+  right: -2px
 
 .status-box
   z-index: 1000
   position: absolute
   background-color: #9f9
-  bottom: 200px
-  left: 60px
-  right: 60px
+  top: 150px
+  left: 200px
+  right: 200px
   border: 3px solid #000
-  font-size: 14px
+  font-size: 20px
+
+.status-box.desktop
+  right: auto
+  left: 20%
+  bottom: 10%
+  width: 600px
+  top: 70%
 
 .status-box div.left
   float: left
@@ -58,9 +71,8 @@ div.clear
 
 .status-box div dl dt
   font-weight: bold
-  
+
 .desktop-status-box
-  width: 400px
 
 .side-padding-10
   margin: 0 10px
