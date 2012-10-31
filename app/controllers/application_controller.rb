@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include Mobylette::RespondToMobileRequests
 
   mobylette_config do |config|
+    config[:skip_user_agents] = [:ipad]
   end
 
   protected
