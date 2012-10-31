@@ -8,13 +8,13 @@
     %dl
       %dt
         Currently Driving
-      %dd
+      %dd#current_driver
         = Driver.current.name
   %div.side-padding-10.left
     %dl
       %dt
         Current Location
-      %dd
+      %dd#current_loc
         = @geo_info.city
         ,
         = @geo_info.state
