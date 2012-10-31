@@ -9,7 +9,7 @@ class Latitude
   end
 
   def current_location
-    current_location = client.execute(api_method: api.current_location.get).body
+    current_location = client.execute(api_method: api.current_location.get, parameters: {'granularity' => 'best'}).body
     Rails.logger.debug "DEBUG current_location: #{current_location}"
     j = JSON.parse(current_location)['data']
 
