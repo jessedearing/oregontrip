@@ -33,7 +33,7 @@ class DriverController < ApplicationController
 
     respond_to do |format|
       if @driver.save
-        format.html { redirect_to @driver, notice: 'Driver was successfully created.' }
+        format.html { redirect_to driver_path, notice: 'Driver was successfully created.' }
         format.json { render json: @driver, status: :created, location: @driver }
       else
         format.html { render action: "new" }
@@ -45,11 +45,11 @@ class DriverController < ApplicationController
   # PUT /drivers/1
   # PUT /drivers/1.json
   def update
-    @driver = Driver.find(params[:id])
+    @driver = Driver.current
 
     respond_to do |format|
       if @driver.update_attributes(params[:driver])
-        format.html { redirect_to @driver, notice: 'Driver was successfully updated.' }
+        format.html { redirect_to driver_path, notice: 'Driver was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

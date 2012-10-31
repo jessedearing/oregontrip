@@ -19,3 +19,12 @@ class @Map
       position: this.gaLatLon()
       map: @map
     })
+  update: ->
+    $.getJSON '/index.json', (data) ->
+      $('#current_driver').text(data.driver)
+      $('#current_loc').text(data.city)
+
+      latlon = new google.maps.LatLng(data.lat, data.lon)
+      document.map.marker.setPosition(latlon)
+      document.map.map.panTo(latlon)
+      setTimeout(document.map.update, 60000)

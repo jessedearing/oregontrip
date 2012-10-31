@@ -5,26 +5,30 @@
     Jesse and Katie's Oregon Trip 2012
 
 .status-box.translucent.desktop-status-box
-  %div.side-padding-10
+  %div.side-padding-10.left
     %dl
       %dt
         Currently Driving
-      %dd
+      %dd#current_driver
         = Driver.current.name
-  %div.side-padding-10
+  %div.side-padding-10.left
     %dl
       %dt
         Current Location
-      %dd
+      %dd#current_loc
         = @geo_info.city
         ,
         = @geo_info.state
+  %div.clear.side-padding-10
+    %small
+      This page updates automatically every minute
 #map_canvas
 
 - content_for(:javascripts) do
   :coffeescript
-    map = new Map(#{@coords.lat}, #{@coords.lon})
-    map.gaRenderMap("map_canvas")
+    document.map = new Map(#{@coords.lat}, #{@coords.lon})
+    document.map.gaRenderMap("map_canvas")
+    setTimeout(document.map.update, 6000)
 
 - content_for(:stylesheets) do
   %link{href:'http://fonts.googleapis.com/css?family=Open+Sans:400,700', rel:'stylesheet', type:'text/css'}
