@@ -1,10 +1,9 @@
-.translucent.top-right-corner.title-box
-
-.opaque.top-right-corner.title-text
+.translucent.bottom.title-box 
+.opaque.bottom.title-text
   %h1
     Jesse and Katie's Oregon Trip 2012
 
-.status-box.translucent.desktop-status-box
+.status-box.translucent
   %div.side-padding-10
     %dl
       %dt
@@ -19,6 +18,7 @@
         = @geo_info.city
         ,
         = @geo_info.state
+
 #map_canvas
 
 - content_for(:javascripts) do

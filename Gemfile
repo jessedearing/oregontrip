@@ -31,9 +31,12 @@ gem 'qu'
 
 gem 'coffee-filter'
 gem 'mobylette'
+gem 'geocoder'
 
 group :development do
   gem 'foreman'
+  gem 'awesome_print'
+  gem 'brice'
 end
 
 # To use ActiveModel has_secure_password

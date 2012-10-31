@@ -1,4 +1,5 @@
 html, body
+  font-family: "Open Sans", sans-serif
   height: 100%
   margin: 0
   padding: 0
@@ -13,6 +14,7 @@ html, body
 .top-right-corner
   position: absolute
   right: 150px
+  top: -2px
 
 .title-box
   width: 600px
@@ -22,14 +24,38 @@ html, body
   z-index: 1000
   padding: 0 20px
   border: solid 2px #000
-  top: -2px
 
 .title-text
   width: 600px
   height: 80px
   z-index: 1000
-  font-family: "Open Sans", sans-serif
   font-size: 17px
   display: block
   margin-left: auto
   margin-right: auto
+
+.bottom
+  position: absolute
+  bottom: 2px
+  right: 0
+
+.status-box
+  z-index: 1000
+  position: absolute
+  background-color: #9f9
+  bottom: 200px
+  left: 60px
+  right: 60px
+  border: 3px solid #000
+
+.status-box div
+  float: left
+
+.status-box div dl dt
+  font-weight: bold
+  
+.desktop-status-box
+  width: 400px
+
+.side-padding-10
+  margin: 0 10px
