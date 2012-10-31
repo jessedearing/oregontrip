@@ -49,9 +49,11 @@ class DriverController < ApplicationController
 
     respond_to do |format|
       if @driver.update_attributes(params[:driver])
+        format.iphone { redirect_to driver_path, notice: 'Driver was successfully updated.' }
         format.html { redirect_to driver_path, notice: 'Driver was successfully updated.' }
         format.json { head :no_content }
       else
+        format.iphone { render action: "edit" }
         format.html { render action: "edit" }
         format.json { render json: @driver.errors, status: :unprocessable_entity }
       end
