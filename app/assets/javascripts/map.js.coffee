@@ -6,7 +6,7 @@ class @Map
     new google.maps.LatLng(@lat, @lon)
   gaRenderMap: (mapdiv) ->
     mapOptions = {
-      zoom: 9
+      zoom: 10
       center: this.gaLatLon()
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
