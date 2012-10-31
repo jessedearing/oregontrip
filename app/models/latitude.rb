@@ -1,4 +1,5 @@
 class Latitude
+  attr_accessor :lat, :lon
   def client
     @client ||= Google::APIClient.new
   end
@@ -8,8 +9,13 @@ class Latitude
   end
 
   def current_location
-    j = JSON.parse(client.execute(api_method: api.current_location.get).body)['data']
-    {:lat => j['latitude'], :lon => j['longitude']}
+    current_location = client.execute(api_method: api.current_location.get).body
+    Rails.logger.debug "DEBUG current_location: #{current_location}"
+    j = JSON.parse(current_location)['data']
+
+    self.lat = j['latitude']
+    self.lon = j['longitude']
+    self
   end
 
   def set_auth(client_key, secret, callback_url)
@@ -26,5 +32,12 @@ class Latitude
 
   def access_token=(token)
     auth.access_token = token
+  end
+
+  def authorize!(reup_token)
+    auth.code = reup_token
+    access_token = auth.fetch_access_token!
+    Rails.logger.debug "DEBUG access_token: #{access_token.inspect}"
+    Authorization.create!(token: access_token['access_token'], renew_token: access_token['refresh_token'])
   end
 end
