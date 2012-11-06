@@ -48,6 +48,7 @@ end
 # gem 'jbuilder'
 
 gem 'puma'
+gem 'hashie'
 
 # Deploy with Capistrano
 # gem 'capistrano'

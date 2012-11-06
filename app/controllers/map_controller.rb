@@ -1,23 +1,30 @@
 class MapController < ApplicationController
   def index
-    if Authorization.count == 0
-      redirect_to latitude_auth
+    if ENV['DISABLE']
+      current_location = Latitude.new
+      current_location.lat = "45.5236"
+      current_lcoation.lon = "122.6750"
+      @geo_info = Hashie::Mash.new({city: 'Portland', state: 'OR'})
+    else
+      if Authorization.count == 0
+        redirect_to latitude_auth
+      end
+
+      latitude.auth.access_token = Authorization.current.token
+
+      if Authorization.current.updated_at + 50.minutes <= Time.now
+        a = Authorization.current
+        latitude.auth.refresh_token = a.renew_token
+        at = latitude.auth.fetch_access_token!['access_token']
+        a.token = at
+        a.save!
+      end
+
+      current_location = latitude.current_location
+      @coords = current_location
+      @geo_info = Geocoder.search("#{current_location.lat}, #{current_location.lon}").first
+      Rails.logger.debug "Geocoder info: #{@geo_info.inspect}"
     end
-
-    latitude.auth.access_token = Authorization.current.token
-
-    if Authorization.current.updated_at + 50.minutes <= Time.now
-      a = Authorization.current
-      latitude.auth.refresh_token = a.renew_token
-      at = latitude.auth.fetch_access_token!['access_token']
-      a.token = at
-      a.save!
-    end
-
-    current_location = latitude.current_location
-    @coords = current_location
-    @geo_info = Geocoder.search("#{current_location.lat}, #{current_location.lon}").first
-    Rails.logger.debug "Geocoder info: #{@geo_info.inspect}"
 
     respond_to do |format|
       format.html

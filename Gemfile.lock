@@ -70,6 +70,7 @@ GEM
       signet (>= 0.4.1)
       uuidtools (>= 2.1.0)
     haml (3.1.7)
+    hashie (1.2.0)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -170,6 +171,7 @@ DEPENDENCIES
   geocoder
   google-api-client
   haml
+  hashie
   jquery-rails
   mobylette
   pg
