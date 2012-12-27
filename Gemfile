@@ -47,7 +47,7 @@ end
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
-gem 'puma'
+gem 'unicorn'
 gem 'hashie'
 
 # Deploy with Capistrano
