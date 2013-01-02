@@ -1,7 +1,7 @@
 class MapController < ApplicationController
   def index
     if ENV['DISABLE']
-      current_location = Latitude.new
+      @coords = current_location = Latitude.new
       current_location.lat = "45.5236"
       current_location.lon = "122.6750"
       @geo_info = Hashie::Mash.new({city: 'Portland', state: 'OR'})
